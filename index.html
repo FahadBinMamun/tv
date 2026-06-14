@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6TV | Premium Live Streaming</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3b82f6">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.10.0/video-js.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="categories" id="category-list">
+                <!-- Categories will be injected here -->
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="settings-btn" id="settings-trigger">
+                    <i data-lucide="settings"></i>
+                    <span data-i18n="settings">Settings</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header/Search -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="menu-toggle" aria-label="Toggle Menu">
+                        <i data-lucide="menu"></i>
+                    </button>
+                    <div class="header-brand">
+                        <h1 class="logo">6TV</h1>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="search-container">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="search-input" placeholder="Search channels..." data-i18n-placeholder="search_placeholder">
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="status-clock">
+                        <i data-lucide="clock"></i>
+                        <span id="current-time"></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Video Player Section (Sticky) -->
+            <section class="player-section">
+                <div class="video-wrapper" id="player-container">
+                    <video id="main-player" class="video-js vjs-big-play-centered" controls preload="auto" width="100%" height="auto">
+                        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+                    </video>
+                </div>
+                <div class="channel-info" id="playing-info">
+                    <div class="info-top">
+                        <h2 id="now-playing-title" data-i18n="select_channel">Select a channel to start streaming</h2>
+                        <button id="fav-toggle-btn" class="fav-btn-large" aria-label="Toggle Favorite">
+                            <i data-lucide="heart"></i>
+                        </button>
+                    </div>
+                    <p id="now-playing-cat"></p>
+                </div>
+            </section>
+
+            <!-- Recently Played Section -->
+            <section class="recent-section" id="recent-section" style="display:none;">
+                <div class="section-header">
+                    <h3 data-i18n="recently_played">Recently Played</h3>
+                </div>
+                <div class="recent-grid" id="recent-grid">
+                    <!-- Recent cards -->
+                </div>
+            </section>
+
+            <!-- Channels Grid -->
+            <section class="channels-section">
+                <div class="section-header">
+                    <h3 id="category-title" data-i18n="all_channels">All Channels</h3>
+                </div>
+                <div class="channels-grid" id="channels-grid">
+                    <!-- Channel cards or Skeletons -->
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </section>
+
+            <!-- Credit Footer -->
+            <footer class="app-footer">
+                <p>&copy; 2026 <span class="brand-text">6TV</span>. All Rights Reserved. Built with <i data-lucide="heart" class="heart-icon"></i> by <span class="credit-text">FORBIT</span></p>
+            </footer>
+            </main>
+            </div>
+
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-i18n="settings">Settings</h3>
+                <i data-lucide="x" class="close-modal" id="close-settings"></i>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <label data-i18n="language">Language</label>
+                    <select id="language-select">
+                        <option value="en">English</option>
+                        <option value="bn">Bangla (বাংলা)</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label data-i18n="theme">Theme</label>
+                    <div class="theme-toggle">
+                        <span data-i18n="dark_mode">Dark Mode</span>
+                        <input type="checkbox" checked disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="save-settings" class="btn-primary" data-i18n="done">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/8.10.0/video.min.js"></script>
+    <script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

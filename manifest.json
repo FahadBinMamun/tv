@@ -1,0 +1,21 @@
+{
+  "name": "6TV Live",
+  "short_name": "6TV",
+  "description": "Premium Live TV Streaming Platform",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192/3b82f6/ffffff?text=6TV",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://via.placeholder.com/512x512/3b82f6/ffffff?text=6TV",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
